@@ -1,0 +1,162 @@
+/* App frame: nav bar, page area, drawers, lightbox, toasts. */
+
+.shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell-main {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 18px;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  height: 100%;
+}
+.nav-links a {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+}
+.nav-links a:hover {
+  color: var(--text);
+}
+.nav-links a.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.nav-status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12.5px;
+  min-width: 0;
+}
+
+.engine-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.gpu-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* ---------- drawers / overlays ---------- */
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 20;
+}
+.drawer {
+  width: min(760px, 92vw);
+  height: 100%;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.drawer-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.logs {
+  flex: 1;
+  margin: 0;
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #c9cdd8;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.92);
+  display: grid;
+  place-items: center;
+  cursor: zoom-out;
+}
+.lightbox img {
+  max-width: 96vw;
+  max-height: 96vh;
+  object-fit: contain;
+}
+
+.toasts {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 420px;
+}
+.toast {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-size: 13px;
+}
+.toast.error {
+  border-color: #5a2b33;
+  background: #2a171b;
+}
+.toast.success {
+  border-color: #23513d;
+  background: #13261e;
+}

@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+backend/data/
+*.tsbuildinfo
+*.log
+next-env.d.ts
